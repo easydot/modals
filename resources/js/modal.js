@@ -5,6 +5,7 @@ window.LivewireUIModal = () => {
         activeComponent: false,
         componentHistory: [],
         modalWidth: null ,
+        modalCentered: null,
         getActiveComponentModalAttribute(key) {
             if (this.$wire.get('components')[this.activeComponent] !== undefined) {
                 return this.$wire.get('components')[this.activeComponent]['modalAttributes'][key];
@@ -78,6 +79,7 @@ window.LivewireUIModal = () => {
                 this.activeComponent = id
                 this.showActiveComponent = true;
                 this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
+                this.modalCentered = this.getActiveComponentModalAttribute('modalCentered');
             } else {
                 this.showActiveComponent = false;
 
@@ -87,6 +89,7 @@ window.LivewireUIModal = () => {
                     this.activeComponent = id;
                     this.showActiveComponent = true;
                     this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
+                    this.modalCentered = this.getActiveComponentModalAttribute('modalCentered');
                 }, 300);
             }
         },
@@ -106,6 +109,7 @@ window.LivewireUIModal = () => {
         },
         init() {
             this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
+            this.modalCentered = this.getActiveComponentModalAttribute('modalCentered');
 
             Livewire.on('closeModal', (force = false, skipPreviousModals = 0, destroySkipped = false) => {
                 this.closeModal(force, skipPreviousModals, destroySkipped);
