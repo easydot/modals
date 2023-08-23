@@ -50,7 +50,7 @@ class Modal extends Component
                 'destroyOnClose' => $componentClass::destroyOnClose(),
                 'maxWidth' => $componentClass::modalMaxWidth(),
                 'maxWidthClass' => $componentClass::modalMaxWidthClass(),
-                'centeredClass' =>
+                'centeredClass' => $componentClass::modalCenteredClass(),
             ], $modalAttributes),
         ];
 
