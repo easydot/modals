@@ -4,8 +4,7 @@ window.LivewireUIModal = () => {
         showActiveComponent: true,
         activeComponent: false,
         componentHistory: [],
-        modalWidth: null ,
-        modalCentered: null,
+        modalClasses: null ,
         getActiveComponentModalAttribute(key) {
             if (this.$wire.get('components')[this.activeComponent] !== undefined) {
                 return this.$wire.get('components')[this.activeComponent]['modalAttributes'][key];
@@ -78,8 +77,7 @@ window.LivewireUIModal = () => {
             if (this.activeComponent === false) {
                 this.activeComponent = id
                 this.showActiveComponent = true;
-                this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
-                this.modalCentered = this.getActiveComponentModalAttribute('modalCentered');
+                this.modalClasses = this.getActiveComponentModalAttribute('modalClasses');
             } else {
                 this.showActiveComponent = false;
 
@@ -88,8 +86,7 @@ window.LivewireUIModal = () => {
                 setTimeout(() => {
                     this.activeComponent = id;
                     this.showActiveComponent = true;
-                    this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
-                    this.modalCentered = this.getActiveComponentModalAttribute('modalCentered');
+                    this.modalClasses = this.getActiveComponentModalAttribute('modalClasses');
                 }, 300);
             }
         },
@@ -108,8 +105,7 @@ window.LivewireUIModal = () => {
             }
         },
         init() {
-            this.modalWidth = this.getActiveComponentModalAttribute('maxWidthClass');
-            this.modalCentered = this.getActiveComponentModalAttribute('modalCentered');
+            this.modalClasses = this.getActiveComponentModalAttribute('modalClasses');
 
             Livewire.on('closeModal', (force = false, skipPreviousModals = 0, destroySkipped = false) => {
                 this.closeModal(force, skipPreviousModals, destroySkipped);

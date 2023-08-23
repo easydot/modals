@@ -84,9 +84,15 @@ abstract class ModalComponent extends Component implements Contract
         return config('livewire-ui-modal.component_defaults.centered', true);
     }
 
-    public static function modalCenteredClass(): string
+    public static function modalClasses(): string
     {
-        return static::modalCentered() ? 'modal-dialog-centered' : '';
+        $classes = [];
+        array_push($classes, static::modalMaxWidthClass());
+        if (static::modalCentered()) {
+            array_push($classes, 'modal-dialog-centered');
+        }
+
+        return implode(' ', $classes);
     }
 
     public static function closeModalOnClickAway(): bool
