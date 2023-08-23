@@ -1,5 +1,5 @@
 {
-  "name": "wire-elements/modal",
+  "name": "easydot/modals",
   "description": "Laravel Livewire modal component",
   "keywords": [
     "laravel",
@@ -9,8 +9,8 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Philo Hermans",
-      "email": "me@philohermans.com"
+      "name": "EASYDOT CREATIVE",
+      "email": "info@easydot.gr"
     }
   ],
   "require-dev": {
